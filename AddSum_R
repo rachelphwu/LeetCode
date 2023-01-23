@@ -1,0 +1,22 @@
+//input: int[]nums, int target
+//output: int[] with 2 indices inside, representing 2 num in the int[]
+//exception  not use same element twice, must have 1 solution
+//0. Take nums[n], add up nums[n+1], n++
+//1. if sum = target, return n & n+1 
+//2. else, n = n+1, repeat step 0
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[]ans = new int[2];
+        for (int n=0; n<nums.length; n++){
+            for (int m=1; m<nums.length; m++){
+                if(nums[n]+nums[m] == target){
+                    ans[0]=n;
+                    ans[1]=m;
+                    return ans;
+                }
+            }
+        }
+        return null;
+    }
+}
