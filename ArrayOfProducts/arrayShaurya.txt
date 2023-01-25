@@ -1,0 +1,25 @@
+import java.util.*;
+
+class Program {
+  public int[] arrayOfProducts(int[] array) {
+    // Write your code here.
+    //init new array the size of array
+    int start = 0;
+    // int end = arrayLength - 1;
+    
+    int[] newArray = new int[array.length];
+    // System.out.println(newArray.length);
+     for(int i = 0; i < array.length; i++){
+      int product = 1;
+        //run two loops using 
+        for(int j = 0; j < array.length; j++){
+          if(i != j){
+            product *= array[j];
+          }
+          newArray[i]  = product;
+        }
+     }
+    
+    return newArray;
+  }
+}
