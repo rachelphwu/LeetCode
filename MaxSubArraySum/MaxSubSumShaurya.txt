@@ -1,0 +1,22 @@
+class Solution {
+    public int maxSubArray(int[] nums) {
+         //one value can keep track of the sum
+         //max value
+         //can be done in one for loop, no reason to use 2 for loops for this one
+         if(nums.length == 1) return nums[0];
+
+         int maxVal = 0;
+         int tracker = Integer.MIN_VALUE;
+       
+         //min value to handle the case when all numbers are negative 
+         for(int i = 0; i < nums.length; i++){
+           
+           maxVal += nums[i];
+           tracker = Math.max(tracker, maxVal);
+
+           if(maxVal < 0) maxVal = 0;
+          //  System.out.println(tracker);
+         }
+         return tracker;       
+    }
+}
