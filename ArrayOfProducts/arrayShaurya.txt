@@ -1,3 +1,58 @@
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+       //init empty array with nums.length
+       int[] products = new int[nums.length];
+
+       //left running product
+       int leftRunningProd = 1;
+        for(int i = 0; i < nums.length; i++){
+          products[i] = leftRunningProd;
+          leftRunningProd *= nums[i];
+          // System.out.println(leftRunningProd);
+        }
+        int rightRunningProd = 1;
+         for(int j = nums.length - 1; j >= 0; j--){
+          products[j] *= rightRunningProd;
+          rightRunningProd *= nums[j];
+          System.out.println(products[j]);
+        }
+
+       return products;  
+    }
+}
+//======================================================
+//ANOTHER WAY TO DO THE ABOVE WITH WORSE TIME COMPLEXITY
+
+// class Solution {
+//     public int[] productExceptSelf(int[] nums) {
+//        //init empty array with nums.length
+//        int[] products = new int[nums.length];
+//        int[] productsLeft = new int[nums.length];
+//        int[] productsRight = new int[nums.length];
+ 
+//        //left running product
+//        int leftRunningProd = 1;
+//         for(int i = 0; i < nums.length; i++){
+//           productsLeft[i] = leftRunningProd;
+//           leftRunningProd *= nums[i];
+//           // System.out.println(leftRunningProd);
+//         }
+//         int rightRunningProd = 1;
+//          for(int j = nums.length - 1; j >= 0; j--){
+//           productsRight[j] = rightRunningProd;
+//           rightRunningProd *= nums[j];
+//           System.out.println(products[j]);
+//         }
+
+//         for(int x = 0; x < nums.length; x++){
+//           products[x] = productsLeft[x] * productsRight[x]; 
+//         }
+
+//        return products;  
+//     }
+// }
+
+
 import java.util.*;
 
 class Program {
